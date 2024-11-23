@@ -10,6 +10,7 @@ window.addEventListener("load", function () {
 		console.log("Play Video");
 		//document.querryselector (InnerHTML)
 		video.play();
+		document.querySelector("#volume").innerHTML = video.volume * 100 + "%";
 		//implement the pause button
 		document.querySelector("#pause").addEventListener("click", function () {
 			console.log("Pause Video");
