@@ -19,15 +19,15 @@ window.addEventListener("load", function () {
 
 		document.querySelector("#slower").addEventListener("click", function () {
 			video.playbackRate *= 0.9;
-			//console log, log new speed
-			console.log("New speed is " + video.playbackRate);
+			//console log, log new speed in %
+			console.log(video.playbackRate * 100 + "%");
 		});
 
 		document.querySelector("#faster").addEventListener("click", function () {
 			//console log
 			video.playbackRate /= 0.9;
 			//console log
-			console.log("New speed is " + video.playbackRate);
+			console.log(video.playbackRate * 100 + "%");
 		});
 		//Advance the current video by 10 seconds.  If the video length has been exceeded go back to the start of the video - no farther.   Log the current location of the video.
 		document.querySelector("#skip").addEventListener("click", function () {
@@ -36,7 +36,7 @@ window.addEventListener("load", function () {
 			} else {
 				video.currentTime = 0;
 			}
-			console.log("Current location " + video.currentTime);
+			console.log(video.currentTime);
 		});
 		//Mute/unmute the video and update the text in the button.
 		document.querySelector("#mute").addEventListener("click", function () {
@@ -48,10 +48,10 @@ window.addEventListener("load", function () {
 				document.querySelector("#mute").innerHTML = "Unmute";
 			}
 		});
-		//Volume Slider. Change the volume based on the slider and update the volume information.
+		//Volume Slider. Change the volume based on the slider and update the volume information next to it.
 		document.querySelector("#slider").addEventListener("change", function () {
 			video.volume = this.value / 100;
-			console.log("Volume is " + video.volume * 100);
+			document.querySelector("#volume").innerHTML = this.value + "%";
 		});
 		//Styled Utilize the existing oldSchool class on the video element
 		document.querySelector("#vintage").addEventListener("click", function () {
